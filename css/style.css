@@ -58,6 +58,10 @@
     opacity: 0;
 }
 
+.txt-family{
+    font-family: 'Times New Roman', Times, serif
+}
+
 .shown{
     opacity: 1;
 }
@@ -70,3 +74,4 @@
     height: 100%;
     z-index: 99
 }
+

@@ -50,7 +50,7 @@ for (let i = 0; i < items.length; i++){
     littleImgList[i] = asideImg;
 
     let textImg = document.createElement("div");
-    textImg.innerHTML = `<h3> ${title [i]} </h3> <h5> ${text[i]} </h5>`;
+    textImg.innerHTML = `<h1 class="txt-family fw-bold"> ${title [i]} </h1> <h3 class="txt-family fw-bold"> ${text[i]} </h3>`;
     textImg.classList.add("text-absolute");
     bigImgContainer.append(textImg);
     textImgList[i] = textImg;
