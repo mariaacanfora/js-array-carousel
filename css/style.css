@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-img{
+    background-image: url("../img/01.jpg");
+    background-size: cover;
+    background-position-x: center;
+    position: relative;
+}
+
+.pos-absolute{
+    text-align: right;
+    width: 25%;
+    position: absolute;
+    bottom: 1%;
+    right: 3%;
+    color: white;
+}
