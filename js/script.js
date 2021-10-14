@@ -77,12 +77,10 @@ arrowUp.addEventListener( "click", function(){
 
     const shownText = bigImgContainer.querySelector(".shown");
     shownText.classList.remove("shown");
-
-
     
-    /* const selectedImg = littleImgContainer.querySelector(".selected");
+    const selectedImg = littleImgContainer.querySelector(".selected");
     selectedImg.classList.remove("selected");
- */
+  
     currentIndex--;
 
     if (currentIndex < 0 ){
@@ -90,7 +88,7 @@ arrowUp.addEventListener( "click", function(){
     }
 
     bigImgList[currentIndex].classList.add("active");
-    //littleImgList[currentIndex].classList.add("selcted");
+    littleImgList[currentIndex].classList.add("selected");
     textImgList[currentIndex].classList.add("shown");
     
 
@@ -104,6 +102,9 @@ arrowDown.addEventListener( "click", function(){
     const shownText = bigImgContainer.querySelector(".shown");
     shownText.classList.remove("shown");
 
+    const selectedImg = littleImgContainer.querySelector(".selected");
+    selectedImg.classList.remove("selected");
+
     currentIndex++;
 
     if (currentIndex > bigImgList.length - 1 ){
@@ -112,6 +113,7 @@ arrowDown.addEventListener( "click", function(){
 
 
     bigImgList[currentIndex].classList.add("active");
+    littleImgList[currentIndex].classList.add("selected");
     textImgList[currentIndex].classList.add("shown");
 
 
