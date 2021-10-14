@@ -66,6 +66,10 @@ arrowUp.addEventListener( "click", function(){
 
     currentIndex--;
 
+    if (currentIndex < 0 ){
+        currentIndex = imgList.length - 1;
+    }
+
     imgList[currentIndex].classList.add("active");
 
 })
@@ -76,6 +80,11 @@ arrowDown.addEventListener( "click", function(){
     selectedImg.classList.remove("active");
 
     currentIndex++;
+
+    if (currentIndex > imgList.length - 1 ){
+        currentIndex = 0;
+    }
+
 
     imgList[currentIndex].classList.add("active");
 
