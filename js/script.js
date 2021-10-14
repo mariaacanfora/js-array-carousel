@@ -14,6 +14,7 @@ const title = [
     'Paradise'
 ]
 
+
 const text = [
     'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
     'Lorem ipsum',
@@ -26,9 +27,11 @@ const text = [
 const bigImgContainer = document.getElementById("big-img-container");
 const littleImgContainer = document.getElementById("little-img-container");
 
-let currentIndex = 0;
+let currentIndex = 2;
 
-let imgList = [];
+let bigImgList = [];
+let littleImgList = [];
+let textImgList = [];
 
 //scorro ed inserisco img 
 for (let i = 0; i < items.length; i++){
@@ -38,16 +41,24 @@ for (let i = 0; i < items.length; i++){
     imgTag.alt = `#${i}`;
     imgTag.classList.add("big-img");
     bigImgContainer.append(imgTag);
-    imgList[i]=imgTag;
+    bigImgList[i]=imgTag;
 
     let asideImg = document.createElement("img");
     asideImg.src = items[i];
     asideImg.alt = `#${i}`;
     littleImgContainer.append(asideImg);
+    littleImgList[i] = asideImg;
 
+    let textImg = document.createElement("div");
+    textImg.innerHTML = `<h3> ${title [i]} </h3> <h5> ${text[i]} </h5>`;
+    textImg.classList.add("text-absolute");
+    bigImgContainer.append(textImg);
+    textImgList[i] = textImg;
     
     if (currentIndex === i){
         imgTag.classList.add("active");
+        asideImg.classList.add("selected");
+        textImg.classList.add("shown");
     }
 
 }
@@ -61,31 +72,47 @@ const arrowDown = document.getElementById("arrow-down");
 
 arrowUp.addEventListener( "click", function(){
 
-    const selectedImg = bigImgContainer.querySelector(".active");
-    selectedImg.classList.remove("active");
+    const activeImg = bigImgContainer.querySelector(".active");
+    activeImg.classList.remove("active");
 
+    const shownText = bigImgContainer.querySelector(".shown");
+    shownText.classList.remove("shown");
+
+
+    
+    /* const selectedImg = littleImgContainer.querySelector(".selected");
+    selectedImg.classList.remove("selected");
+ */
     currentIndex--;
 
     if (currentIndex < 0 ){
-        currentIndex = imgList.length - 1;
+        currentIndex = bigImgList.length - 1;
     }
 
-    imgList[currentIndex].classList.add("active");
+    bigImgList[currentIndex].classList.add("active");
+    //littleImgList[currentIndex].classList.add("selcted");
+    textImgList[currentIndex].classList.add("shown");
+    
 
 })
 
 arrowDown.addEventListener( "click", function(){
 
-    const selectedImg = bigImgContainer.querySelector(".active");
-    selectedImg.classList.remove("active");
+    const activeImg = bigImgContainer.querySelector(".active");
+    activeImg.classList.remove("active");
+
+    const shownText = bigImgContainer.querySelector(".shown");
+    shownText.classList.remove("shown");
 
     currentIndex++;
 
-    if (currentIndex > imgList.length - 1 ){
+    if (currentIndex > bigImgList.length - 1 ){
         currentIndex = 0;
     }
 
 
-    imgList[currentIndex].classList.add("active");
+    bigImgList[currentIndex].classList.add("active");
+    textImgList[currentIndex].classList.add("shown");
+
 
 })

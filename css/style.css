@@ -21,7 +21,19 @@
 #little-img-container > img{
     width: 100%;
     height: calc(100vh / 5);
+    filter: brightness(0.3);
+    transition: brightness .3s;
 }
+
+#little-img-container > img.selected{
+    filter: brightness(1);
+}
+
+
+#big-img-container > img.active{
+    opacity: 1;
+}
+
 
 .big-img{
     width: 100%;
@@ -35,9 +47,6 @@
     transition: opacity .3s;
 }
 
-#big-img-container > img.active{
-    opacity: 1;
-}
 
 .text-absolute{
     text-align: right;
@@ -49,7 +58,7 @@
     opacity: 0;
 }
 
-.text-absolute.active{
+.shown{
     opacity: 1;
 }
 
@@ -59,4 +68,5 @@
     right: 50%;
     transform: translateX(50%);
     height: 100%;
+    z-index: 99
 }
