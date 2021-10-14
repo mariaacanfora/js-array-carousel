@@ -26,8 +26,9 @@ const text = [
 const bigImgContainer = document.getElementById("big-img-container");
 const littleImgContainer = document.getElementById("little-img-container");
 
-let startIndex = 1;
+let currentIndex = 0;
 
+let imgList = [];
 
 //scorro ed inserisco img 
 for (let i = 0; i < items.length; i++){
@@ -37,6 +38,7 @@ for (let i = 0; i < items.length; i++){
     imgTag.alt = `#${i}`;
     imgTag.classList.add("big-img");
     bigImgContainer.append(imgTag);
+    imgList[i]=imgTag;
 
     let asideImg = document.createElement("img");
     asideImg.src = items[i];
@@ -44,9 +46,37 @@ for (let i = 0; i < items.length; i++){
     littleImgContainer.append(asideImg);
 
     
-    if (startIndex === i){
+    if (currentIndex === i){
         imgTag.classList.add("active");
     }
 
 }
 
+//aggiungo addeventListener su arrow-up e arrow-down
+
+const arrowUp = document.getElementById("arrow-up");
+const arrowDown = document.getElementById("arrow-down");
+
+
+
+arrowUp.addEventListener( "click", function(){
+
+    const selectedImg = bigImgContainer.querySelector(".active");
+    selectedImg.classList.remove("active");
+
+    currentIndex--;
+
+    imgList[currentIndex].classList.add("active");
+
+})
+
+arrowDown.addEventListener( "click", function(){
+
+    const selectedImg = bigImgContainer.querySelector(".active");
+    selectedImg.classList.remove("active");
+
+    currentIndex++;
+
+    imgList[currentIndex].classList.add("active");
+
+})

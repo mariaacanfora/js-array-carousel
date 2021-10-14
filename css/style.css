@@ -32,6 +32,7 @@
     position: absolute;
     top: 0;
     bottom:0;
+    transition: opacity .3s;
 }
 
 #big-img-container > img.active{
@@ -45,6 +46,11 @@
     bottom: 1%;
     right: 3%;
     color: white;
+    opacity: 0;
+}
+
+.text-absolute.active{
+    opacity: 1;
 }
 
 .arrow-absolute{
