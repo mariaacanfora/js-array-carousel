@@ -4,23 +4,28 @@
     box-sizing: border-box;
 }
 
+#carousel-container{
+    height: 600px;
+}
+
 #img-container{
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
 }
 
 #big-img-container{
     position: relative;
+    height: 100%;
 }
 
 #little-img-container{
     overflow: hidden;
     position: relative;
+    height: 100%;
 }
 
 #little-img-container > img{
     width: 100%;
-    height: calc(100vh / 5);
+    height: calc(100% / 5);
     filter: brightness(0.3);
     transition: brightness .3s;
 }
@@ -50,7 +55,7 @@
 
 .text-absolute{
     text-align: right;
-    width: 25%;
+    width: 35%;
     position: absolute;
     bottom: 3%;
     right: 3%;
